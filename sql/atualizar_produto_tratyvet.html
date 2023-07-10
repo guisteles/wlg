@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>WLG Distribuidora</title>
+        <!-- Bootstrap -->
+        <link href="../bootstrap-5.2.0-dist/css/bootstrap.min.css"
+            rel="stylesheet">
+        <!-- HTML5 shim e Respond.js para suporte no IE8 de elementos HTML5 e media queries -->
+        <!-- ALERTA: Respond.js não funciona se você visualizar uma página file:// -->
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    </head>
+    <style>
+        body{
+          background-image: url("../imagens/fundo.png");
+          padding: 0px;
+          margin: 0px;
+          border: 0px;
+          max-width: 300px;
+          max-height: 300px;
+          font-family: Poppins;
+            }
+        .container-login{
+          width: 100vw;
+          height: calc(100vh - 80px);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+        }
+          .container-box{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            background-color: #fff;
+          }
+          .navbar {
+            width: 100vw;
+            height: 80px;
+            background-color: #fff;
+          }
+          
+        </style>
+    <body>
+
+        <div class="navbar shadow">
+            <a class="navbar-brand" href="../principal.php">
+                <img src="../imagens/logo.png" style="left: 5px; top: -5px;
+                    position: absolute" alt="" height="95" class="d-inline-block
+                    align-text-top">
+            </a>
+        </div>
+        <div class="container-login">
+            <div class="container-box" style="width: 800px; height: 450px;position: relative">
+        <form action="valida_atualizar_produto_tratyvet.php" method="POST">
+        <!-- 2 column grid layout with text inputs for the first and last names -->
+        <br>
+        <h1 style="text-align: center">Atualização de Produto</h1>
+        <br>
+        <br>
+        <div class="row mb-2">
+            <div class="col">
+            <div class="form-outline">
+                <input type="number"  class="form-control" name="cod_produto_tv" placeholder="Código do Produto" required />
+                <br>
+            </div>
+            </div>
+            <div class="col">
+            <div class="form-outline">
+                <input type="text"  class="form-control" name="nome_produto_tv" placeholder="Nome" required />
+            </div>
+            <br>
+            <div class="col-auto">
+            <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="form11Example2" checked />
+            <label class="form-check-label" for="form11Example2"> Tem certeza? </label>
+            </div>
+            <br>
+        </div>
+        </div>
+        <button type="submit" name="excluir" value="Excluir" class="btn btn-danger btn-block mb-4">Atualizar</button>
+        </form>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <!-- jQuery (obrigatório para plugins JavaScript do Bootstrap) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Inclui todos os plugins compilados (abaixo), ou inclua arquivos separadados se necessário -->
+    <script src="../js/bootstrap.min.js"></script>
+</body>
+</html>

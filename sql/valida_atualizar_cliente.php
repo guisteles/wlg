@@ -1,0 +1,146 @@
+<?php
+    include "conexao.php";
+    $cod_cliente = $_POST['cod_cliente'];
+    $sql = "SELECT * FROM clientes WHERE cod_cliente = ".$cod_cliente.";";
+    $result = mysqli_query($con,$sql) or die("Erro ao retornar os dados");
+    while($res = mysqli_fetch_array($result))
+        {
+            $cod_cliente = $res['cod_cliente'];
+            $nome_cliente = $res['nome_cliente'];
+            $sobrenome_cliente = $res['sobrenome_cliente'];
+            $estado_cliente = $res['estado_cliente'];
+            $cidade_cliente = $res['cidade_cliente'];
+            $email_cliente = $res['email_cliente'];
+            $endereco_cliente = $res['endereco_cliente'];
+            $limitecr_cliente = $res['limitecr_cliente'];
+            $tel_cliente = $res['tel_cliente'];
+        }
+    mysqli_close($con);
+?>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sistema WLG</title>
+        <!-- Bootstrap -->
+        <link href="../bootstrap-5.2.0-dist/css/bootstrap.min.css"
+            rel="stylesheet">
+        <!-- HTML5 shim e Respond.js para suporte no IE8 de elementos HTML5 e media queries -->
+        <!-- ALERTA: Respond.js não funciona se você visualizar uma página file:// -->
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    </head>
+    <style>
+        body{
+          background-image: url("../imagens/fundo.jpg");
+          padding: 0px;
+          margin: 0px;
+          border: 0px;
+          max-width: 300px;
+          max-height: 300px;
+          font-family: Poppins;
+            }
+        .container-login{
+          width: 100vw;
+          height: calc(100vh - 80px);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+        }
+          .container-box{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            background-color: #fff;
+          }
+          .navbar {
+            width: 100vw;
+            height: 80px;
+            background-color: #fff;
+          }
+          
+        </style>
+    <body>
+
+        <div class="navbar shadow">
+            <a class="navbar-brand" href="../principal.php">
+                <img src="../imagens/logo.png" style="left: 5px; top: -5px;
+                    position: absolute" alt="" height="95" class="d-inline-block
+                    align-text-top">
+            </a>
+        </div>
+        <div class="row">
+        <div class="col">
+        <div class="container-login">
+            <div class="container-box" style="width: 1000px; height: 750px;position: relative">
+            <form action="valida_valida_atualizar_cliente.php" method="POST">
+        <!-- 2 column grid layout with text inputs for the first and last names -->
+        <br>
+        <h1 style="text-align: center">Atualização de Cliente</h1>
+        <br>
+        <br>
+        <div class="row mb-2">
+            <input type="hidden" name="cod_cliente" value="<?php echo $cod_cliente;?>">
+            <div class="col">
+            <div class="form-outline">
+                <input type="text"  class="form-control" name="nome_cliente" value="<?php echo $nome_cliente;?>" placeholder="Nome" required />
+            </div>
+            </div>
+        </div>
+        <br>
+        <!-- Text input -->
+        <div class="form-outline mb-2">
+            <input type="text"  class="form-control" name="estado_cliente" value="<?php echo $estado_cliente;?>" placeholder="Estado" required />
+        </div>
+        <br>
+        <!-- Text input -->
+        <div class="form-outline mb-2">
+            <input type="text"  class="form-control" name="cidade_cliente" value="<?php echo $cidade_cliente;?>" placeholder="Cidade" required/>
+        </div>
+        <br>
+        <!-- Email input -->
+        <div class="form-outline mb-2">
+            <input type="email" class="form-control" name="email_cliente" value="<?php echo $email_cliente;?>" placeholder="Email" required/>
+        </div>
+        <br>
+         <!-- Text input -->
+         <div class="form-outline mb-2">
+            <input type="text" class="form-control" name="endereco_cliente" value="<?php echo $endereco_cliente;?>" placeholder="Endereço" required/>
+        </div>
+        <br>
+         <!-- Number input -->
+         <div class="form-outline mb-2">
+            <input type="number"  class="form-control" name="limitecr_cliente" value="<?php echo $cep_cliente;?>" placeholder="CEP" required/>
+        </div>
+        <br>
+        <!-- Number input -->
+        <div class="form-outline mb-2">
+            <input type="number"  class="form-control" name="tel_cliente" value="<?php echo $tel_cliente;?>" placeholder="Telefone" required/>
+        </div>
+        <br>
+
+        <!-- Checkbox -->
+        <div class="form-check d-flex justify-content-center mb-2">
+            <input class="form-check-input me-2" type="checkbox" value="" id="form6Example8" checked required />
+            <label class="form-check-label" for="form6Example8"> Está tudo correto? </label>
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" name="atualizar" class="btn btn-primary btn-block mb-4">Atualizar</button>
+        </form>
+    </div>
+    </div>
+</div>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <!-- jQuery (obrigatório para plugins JavaScript do Bootstrap) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Inclui todos os plugins compilados (abaixo), ou inclua arquivos separadados se necessário -->
+    <script src="../bootstrap-5.2.0-dist/js/bootstrap.min.js"></script>
+</body>
+</html>
